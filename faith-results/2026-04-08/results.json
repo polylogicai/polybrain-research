@@ -1,0 +1,100 @@
+{
+  "experiment": "faith-vs-caution",
+  "date": "2026-04-08T15:39:52.056Z",
+  "cyclesPerConfig": 5,
+  "configA": [
+    {
+      "cycle": 1,
+      "cycleNum": 47,
+      "success": true,
+      "duration": 61801,
+      "findingsLength": 4893,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 2,
+      "cycleNum": 48,
+      "success": true,
+      "duration": 58748,
+      "findingsLength": 6055,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 3,
+      "cycleNum": 49,
+      "success": true,
+      "duration": 61817,
+      "findingsLength": 3800,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 4,
+      "cycleNum": 50,
+      "success": true,
+      "duration": 69702,
+      "findingsLength": 4389,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 5,
+      "cycleNum": 51,
+      "success": true,
+      "duration": 70368,
+      "findingsLength": 4547,
+      "hasSynthesis": true
+    }
+  ],
+  "configB": [
+    {
+      "cycle": 1,
+      "cycleNum": 52,
+      "success": true,
+      "duration": 72901,
+      "findingsLength": 4965,
+      "accumulatedLength": 4994,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 2,
+      "cycleNum": 54,
+      "success": true,
+      "duration": 60286,
+      "findingsLength": 4869,
+      "accumulatedLength": 9892,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 3,
+      "cycleNum": 55,
+      "success": true,
+      "duration": 66459,
+      "findingsLength": 4775,
+      "accumulatedLength": 14696,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 4,
+      "cycleNum": 56,
+      "success": true,
+      "duration": 60910,
+      "findingsLength": 5046,
+      "accumulatedLength": 19771,
+      "hasSynthesis": true
+    },
+    {
+      "cycle": 5,
+      "cycleNum": 57,
+      "success": true,
+      "duration": 63425,
+      "findingsLength": 4218,
+      "accumulatedLength": 24018,
+      "hasSynthesis": true
+    }
+  ],
+  "summary": {
+    "aAvgFindings": 4737,
+    "bAvgFindings": 4775,
+    "compounding": false,
+    "faithAdvantage": "PARTIAL"
+  }
+}
