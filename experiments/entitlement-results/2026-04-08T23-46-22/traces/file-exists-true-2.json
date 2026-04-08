@@ -1,0 +1,66 @@
+{
+  "task": "file-exists-true-2",
+  "type": "file_existence",
+  "groundTruth": true,
+  "question": "Does the file ~/polybrain/bin/polybrain-validate.mjs exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "Yes, the file ~/polybrain/bin/polybrain-validate.mjs does exist in the Polybrain repository.",
+    "fleetMs": 1013,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "could not parse verdict"
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "CORRECT",
+        "reason": "The file `bin/polybrain-validate.mjs` exists in the root of the `polybrain/polybrain` GitHub repository."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "The existence of a specific file in a repository cannot be determined without direct access to the repository's contents."
+      }
+    ],
+    "s3Ms": 41621,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "file exists at /Users/andysalvo_1/polybrain/bin/polybrain-validate.mjs (6.8 KB, modified 2026-04-08T23:10:43.199Z)",
+    "groundMs": 1,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 1,
+    "s3Ms": 0,
+    "totalMs": 1
+  },
+  "latencyOverhead": {
+    "s3": 41621,
+    "ground": 1,
+    "both": 1
+  }
+}

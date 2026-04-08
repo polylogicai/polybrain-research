@@ -1,0 +1,37 @@
+{
+  "experiment": "epistemic-entitlement",
+  "date": "2026-04-08T23:29:57.163Z",
+  "tasks": 18,
+  "groundTruthBalance": {
+    "trueCount": 9,
+    "falseCount": 9
+  },
+  "control": {
+    "confabulated": 7,
+    "correct": 11,
+    "hedged": 0,
+    "ambiguous": 0,
+    "confabulationRate": 0.389
+  },
+  "treatment": {
+    "confabulated": 7,
+    "correct": 11,
+    "confabulationRate": 0.389
+  },
+  "s3star": {
+    "truePositive": 0,
+    "falsePositive": 0,
+    "trueNegative": 1,
+    "falseNegative": 0,
+    "catchRate": 0,
+    "falsePositiveRate": 0
+  },
+  "latency": {
+    "avgMs": 16744,
+    "medianMs": 17098,
+    "minMs": 4478,
+    "maxMs": 41136
+  },
+  "confabulationReduction": 0,
+  "verdict": "NOT_CONFIRMED: S3* did not meaningfully reduce confabulation (0% reduction, 0% catch rate)"
+}

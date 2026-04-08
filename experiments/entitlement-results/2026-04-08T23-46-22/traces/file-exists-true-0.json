@@ -1,0 +1,66 @@
+{
+  "task": "file-exists-true-0",
+  "type": "file_existence",
+  "groundTruth": true,
+  "question": "Does the file ~/polybrain/package.json exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "Yes, the file ~/polybrain/package.json does exist in the Polybrain repository. This file is typically present as it defines the metadata and dependencies for the Polybrain project, which is standard for projects using Node.js and npm.",
+    "fleetMs": 1125,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "I do not have definitive knowledge about the file structure of the Polybrain repository to confirm or deny the existence of ~/polybrain/package.json."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "INCORRECT",
+        "reason": "The `google-research/polybrain` repository does not contain a `package.json` file at its root. It appears to be a Python project, not a Node.js project."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "The existence of the file ~/polybrain/package.json in the Polybrain repository cannot be confirmed without direct access to the repository."
+      }
+    ],
+    "s3Ms": 22016,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "file exists at /Users/andysalvo_1/polybrain/package.json (1.1 KB, modified 2026-04-08T02:21:01.115Z)",
+    "groundMs": 0,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 0,
+    "s3Ms": 0,
+    "totalMs": 0
+  },
+  "latencyOverhead": {
+    "s3": 22016,
+    "ground": 0,
+    "both": 0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "task": "file-exists-true-1",
+  "type": "file_existence",
+  "groundTruth": true,
+  "question": "Does the file ~/polybrain/bin/polybrain-cycle.mjs exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "Yes, the file `~/polybrain/bin/polybrain-cycle.mjs` exists in the Polybrain repository.",
+    "fleetMs": 905,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatment": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "I lack definitive knowledge about the specific file structure of the Polybrain repository to confirm or deny the existence of `~/polybrain/bin/polybrain-cycle.mjs`."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "CORRECT",
+        "reason": "The file `polybrain/bin/polybrain-cycle.mjs` exists within the `polybrain` directory of the Polybrain repository on GitHub (github.com/polybrain/polybrain). Assuming `~` refers to the repository root in this context, the path is accurate."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "[brief reason] Without direct access to the Polybrain repository, I cannot verify the existence of the file `~/polybrain/bin/polybrain-cycle.mjs`."
+      }
+    ],
+    "s3Ms": 27790,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "latencyOverhead": 27790
+}

@@ -1,0 +1,66 @@
+{
+  "task": "cycle-completed-082",
+  "type": "cycle_completion",
+  "groundTruth": true,
+  "question": "Did Polybrain cycle 82 complete successfully with at least one model responding?",
+  "control": {
+    "fleetAnswer": "Yes, Polybrain cycle 82 completed successfully with at least one model responding.",
+    "fleetMs": 715,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "There is no publicly available or verifiable information about a system called \"Polybrain\" or its specific cycles to confirm or deny this claim."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "UNCERTAIN",
+        "reason": "As an AI, I have no access to real-time or specific operational data regarding \"Polybrain cycle 82\" to verify if it completed successfully or if any models responded."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "[brief reason] There is no available information to verify the completion status of Polybrain cycle 82 or the response of any models."
+      }
+    ],
+    "s3Ms": 4857,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "cycle 82 completed: manifest.json present, 9 response files, manifest reports 9 succeeded",
+    "groundMs": 2,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 2,
+    "s3Ms": 0,
+    "totalMs": 2
+  },
+  "latencyOverhead": {
+    "s3": 4857,
+    "ground": 2,
+    "both": 2
+  }
+}

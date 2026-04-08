@@ -1,0 +1,66 @@
+{
+  "task": "cycle-completed-085",
+  "type": "cycle_completion",
+  "groundTruth": true,
+  "question": "Did Polybrain cycle 85 complete successfully with at least one model responding?",
+  "control": {
+    "fleetAnswer": "Yes, Polybrain cycle 85 completed successfully with at least one model responding.",
+    "fleetMs": 1275,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "There is no publicly available or independently verifiable information about \"Polybrain\" or its cycles to confirm the status of cycle 85."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "UNCERTAIN",
+        "reason": "I have no access to real-time or historical data regarding an internal system named \"Polybrain cycle 85\" to verify its completion status or model responses."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "[brief reason] There is no publicly available information or context provided about Polybrain cycle 85 to verify the completion status or model responses."
+      }
+    ],
+    "s3Ms": 4345,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "cycle 85 completed: manifest.json present, 9 response files, manifest reports 9 succeeded",
+    "groundMs": 1,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 1,
+    "s3Ms": 0,
+    "totalMs": 1
+  },
+  "latencyOverhead": {
+    "s3": 4345,
+    "ground": 1,
+    "both": 1
+  }
+}

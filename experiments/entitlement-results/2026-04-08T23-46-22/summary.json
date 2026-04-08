@@ -1,0 +1,71 @@
+{
+  "experiment": "epistemic-entitlement-v2",
+  "date": "2026-04-08T23:51:14.649Z",
+  "tasks": 18,
+  "groundTruthBalance": {
+    "trueCount": 9,
+    "falseCount": 9
+  },
+  "control": {
+    "confabulated": 7,
+    "correct": 11,
+    "hedged": 0,
+    "ambiguous": 0,
+    "confabulationRate": 0.389
+  },
+  "treatmentS3": {
+    "confabulated": 7,
+    "correct": 11,
+    "confabulationRate": 0.389,
+    "caught": 0,
+    "falsePositive": 0,
+    "trueNegative": 0,
+    "falseNegative": 0,
+    "catchRate": 0,
+    "falsePositiveRate": 0,
+    "confabulationReduction": 0,
+    "verdict": "NOT_CONFIRMED: S3* did not meaningfully reduce confabulation (0% reduction, 0% catch rate)",
+    "latency": {
+      "avg": 15277,
+      "median": 13126,
+      "min": 4345,
+      "max": 41621
+    }
+  },
+  "treatmentGround": {
+    "confabulated": 0,
+    "correct": 18,
+    "confabulationRate": 0,
+    "caught": 7,
+    "falsePositive": 0,
+    "catchRate": 1,
+    "falsePositiveRate": 0,
+    "confabulationReduction": 1,
+    "verdict": "CONFIRMED: Grounding reduces confabulation by 100% with 100% catch rate",
+    "latency": {
+      "avg": 1,
+      "median": 1,
+      "min": 1,
+      "max": 2
+    }
+  },
+  "treatmentBoth": {
+    "confabulated": 0,
+    "correct": 18,
+    "confabulationRate": 0,
+    "caught": 7,
+    "falsePositive": 0,
+    "catchRate": 1,
+    "falsePositiveRate": 0,
+    "confabulationReduction": 1,
+    "verdict": "CONFIRMED: Grounding+S3* reduces confabulation by 100% with 100% catch rate",
+    "latency": {
+      "avg": 1,
+      "median": 1,
+      "min": 1,
+      "max": 2
+    }
+  },
+  "bestIntervention": "Grounding",
+  "bestReduction": 1
+}

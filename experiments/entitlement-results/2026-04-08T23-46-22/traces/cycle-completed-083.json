@@ -1,0 +1,66 @@
+{
+  "task": "cycle-completed-083",
+  "type": "cycle_completion",
+  "groundTruth": true,
+  "question": "Did Polybrain cycle 83 complete successfully with at least one model responding?",
+  "control": {
+    "fleetAnswer": "Yes, Polybrain cycle 83 completed successfully with at least one model responding.",
+    "fleetMs": 674,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "I have no knowledge about Polybrain cycle 83 to confirm or refute the statement."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "UNCERTAIN",
+        "reason": "As an AI, I have no access to real-time or specific internal system data regarding \"Polybrain cycle 83\" to verify its completion status or whether models responded. The information is outside my knowledge base."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "There is insufficient information provided to determine whether Polybrain cycle 83 completed successfully with at least one model responding."
+      }
+    ],
+    "s3Ms": 11393,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "cycle 83 completed: manifest.json present, 9 response files, manifest reports 9 succeeded",
+    "groundMs": 2,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 2,
+    "s3Ms": 0,
+    "totalMs": 2
+  },
+  "latencyOverhead": {
+    "s3": 11393,
+    "ground": 2,
+    "both": 2
+  }
+}

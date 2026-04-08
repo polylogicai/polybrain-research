@@ -1,0 +1,66 @@
+{
+  "task": "cycle-completed-084",
+  "type": "cycle_completion",
+  "groundTruth": true,
+  "question": "Did Polybrain cycle 84 complete successfully with at least one model responding?",
+  "control": {
+    "fleetAnswer": "Yes, Polybrain cycle 84 completed successfully with at least one model responding.",
+    "fleetMs": 896,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "No specific knowledge about Polybrain cycle 84 to confirm or deny the claim."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "UNCERTAIN",
+        "reason": "I have no access to real-time or historical data regarding \"Polybrain cycle 84\" or its operational status, therefore I cannot verify if it completed successfully or if any models responded."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "[brief reason] There is no publicly available information on \"Polybrain cycle 84\" to verify the completion status or model responses."
+      }
+    ],
+    "s3Ms": 13126,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "cycle 84 completed: manifest.json present, 9 response files, manifest reports 9 succeeded",
+    "groundMs": 0,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 0,
+    "s3Ms": 0,
+    "totalMs": 0
+  },
+  "latencyOverhead": {
+    "s3": 13126,
+    "ground": 0,
+    "both": 0
+  }
+}

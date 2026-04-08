@@ -1,0 +1,41 @@
+{
+  "task": "file-exists-false-6",
+  "type": "file_existence",
+  "groundTruth": false,
+  "question": "Does the file ~/polybrain/config/anthropic-keys.json exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "No, the file ~/polybrain/config/anthropic-keys.json does not exist in the Polybrain repository by default. This file is typically a user-created configuration file meant to store Anthropic API keys securely and is not included in the repository to protect sensitive information. Users are expected to create this file themselves if they need to use Anthropic services within Polybrain.",
+    "fleetMs": 1435,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatment": {
+    "s3Consensus": "CORRECT",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "CORRECT",
+        "reason": "The answer accurately states that such a file, which would contain sensitive API keys, is not included in the repository by default, aligning with standard security practices for open-source projects."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "CORRECT",
+        "reason": "The answer correctly states that such a file, containing sensitive API keys, would not be committed to a repository for security reasons and is typically created by the user locally. This aligns with standard software development practices."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "The existence of the file ~/polybrain/config/anthropic-keys.json in the Polybrain repository cannot be determined without direct access to the repository's contents."
+      }
+    ],
+    "s3Ms": 5417,
+    "s3Classification": "TRUE_NEGATIVE",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "latencyOverhead": 5417
+}

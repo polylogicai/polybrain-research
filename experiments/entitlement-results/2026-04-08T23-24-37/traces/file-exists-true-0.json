@@ -1,0 +1,41 @@
+{
+  "task": "file-exists-true-0",
+  "type": "file_existence",
+  "groundTruth": true,
+  "question": "Does the file ~/polybrain/package.json exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "Yes, the file ~/polybrain/package.json exists in the Polybrain repository. This file is typically present as it defines the project's metadata, dependencies, and scripts for the Polybrain system.",
+    "fleetMs": 1104,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatment": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "CORRECT",
+        "reason": "The Polybrain repository includes a package.json file in its root directory, which is standard for Node.js projects to manage metadata, dependencies, and scripts."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "INCORRECT",
+        "reason": "The file `package.json` does not exist at the root of the Polybrain repository (e.g., Polybrain-AI/Polybrain on GitHub). Additionally, a path including `~/` is a local filesystem path, not a path within a repository's content."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "The existence of the file ~/polybrain/package.json cannot be confirmed without direct access to the Polybrain repository."
+      }
+    ],
+    "s3Ms": 16475,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "latencyOverhead": 16475
+}

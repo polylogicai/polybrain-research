@@ -1,0 +1,66 @@
+{
+  "task": "file-exists-true-3",
+  "type": "file_existence",
+  "groundTruth": true,
+  "question": "Does the file ~/polybrain/src/srs/enforcer.mjs exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "Yes, the file ~/polybrain/src/srs/enforcer.mjs does exist in the Polybrain repository.",
+    "fleetMs": 1118,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "CORRECT",
+        "reason": "The Polybrain repository's source code includes the file `src/srs/enforcer.mjs`, as documented in its public structure."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "INCORRECT",
+        "reason": "The file `src/srs/enforcer.mjs` does not exist in the Polybrain repository based on its public GitHub repository structure."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "[brief reason] I do not have access to the current state of file systems or repositories to verify the existence of specific files."
+      }
+    ],
+    "s3Ms": 23510,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "file exists at /Users/andysalvo_1/polybrain/src/srs/enforcer.mjs (9.8 KB, modified 2026-04-08T14:36:19.252Z)",
+    "groundMs": 1,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 1,
+    "s3Ms": 0,
+    "totalMs": 1
+  },
+  "latencyOverhead": {
+    "s3": 23510,
+    "ground": 1,
+    "both": 1
+  }
+}

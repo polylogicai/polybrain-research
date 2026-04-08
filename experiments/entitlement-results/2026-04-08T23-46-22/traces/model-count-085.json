@@ -1,0 +1,78 @@
+{
+  "task": "model-count-085",
+  "type": "model_count",
+  "groundTruth": 9,
+  "question": "How many models responded in the most recent Polybrain cycle (cycle 85)? Respond with just the number.",
+  "control": {
+    "fleetAnswer": "7",
+    "fleetMs": 979,
+    "classification": "CONFABULATED",
+    "confabulated": true,
+    "correct": false
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "I lack specific knowledge about the number of models that responded in Polybrain cycle 85."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "UNCERTAIN",
+        "reason": "I do not have access to real-time or proprietary data regarding \"Polybrain cycle 85\" to verify the number of models that responded."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "There is no available information to verify the number of models that responded in the most recent Polybrain cycle."
+      }
+    ],
+    "s3Ms": 10922,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": true,
+    "correct": false,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": true,
+    "evidence": "cycle 85 has 9 response files: gpt-4.1-mini, gpt-4.1-nano, gpt-oss-120b, grok-3-mini, grok-4-fast, kimi-k2-groq, llama-3.3-70b, llama-4-scout, qwen3-32b",
+    "groundMs": 1,
+    "agreesWithFleet": false,
+    "caught": true,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "count": 9,
+    "models": [
+      "gpt-4.1-mini",
+      "gpt-4.1-nano",
+      "gpt-oss-120b",
+      "grok-3-mini",
+      "grok-4-fast",
+      "kimi-k2-groq",
+      "llama-3.3-70b",
+      "llama-4-scout",
+      "qwen3-32b"
+    ]
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": false,
+    "caught": true,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 1,
+    "s3Ms": 0,
+    "totalMs": 1
+  },
+  "latencyOverhead": {
+    "s3": 10922,
+    "ground": 1,
+    "both": 1
+  }
+}

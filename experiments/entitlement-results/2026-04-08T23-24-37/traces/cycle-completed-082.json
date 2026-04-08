@@ -1,0 +1,41 @@
+{
+  "task": "cycle-completed-082",
+  "type": "cycle_completion",
+  "groundTruth": true,
+  "question": "Did Polybrain cycle 82 complete successfully with at least one model responding?",
+  "control": {
+    "fleetAnswer": "Yes, Polybrain cycle 82 completed successfully with at least one model responding.",
+    "fleetMs": 899,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatment": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "No independent knowledge about Polybrain cycle 82's completion or response status."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "UNCERTAIN",
+        "reason": "No external information is provided to validate the factual claim about Polybrain cycle 82."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "[brief reason] There is no available information to verify the completion status of Polybrain cycle 82 or the response of any model."
+      }
+    ],
+    "s3Ms": 19769,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "latencyOverhead": 19769
+}

@@ -1,0 +1,66 @@
+{
+  "task": "file-exists-false-6",
+  "type": "file_existence",
+  "groundTruth": false,
+  "question": "Does the file ~/polybrain/config/anthropic-keys.json exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "No, the file ~/polybrain/config/anthropic-keys.json does not exist in the Polybrain repository. Configuration files for API keys like anthropic-keys.json are typically user-generated and not included in the repository to avoid exposing sensitive information. The repository usually contains example or template config files, but the actual anthropic-keys.json would be created by the user in their local environment.",
+    "fleetMs": 1648,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentS3": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "UNCERTAIN",
+        "reason": "I do not have specific knowledge of the contents of the Polybrain repository to confirm the presence or absence of the file."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "CORRECT",
+        "reason": "The file `anthropic-keys.json` does not exist in the `polybrain/config/` directory of the Polybrain GitHub repository. The fleet's reasoning about sensitive information and user-generated configuration files is also accurate."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "The existence of a specific file in a repository cannot be definitively determined without direct access to the repository's contents."
+      }
+    ],
+    "s3Ms": 27738,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "treatmentGround": {
+    "verified": false,
+    "evidence": "no file or directory at /Users/andysalvo_1/polybrain/config/anthropic-keys.json",
+    "groundMs": 1,
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true
+  },
+  "treatmentBoth": {
+    "source": "grounding",
+    "agreesWithFleet": true,
+    "caught": false,
+    "falsePositive": false,
+    "confabulated": false,
+    "correct": true,
+    "groundMs": 1,
+    "s3Ms": 0,
+    "totalMs": 1
+  },
+  "latencyOverhead": {
+    "s3": 27738,
+    "ground": 1,
+    "both": 1
+  }
+}

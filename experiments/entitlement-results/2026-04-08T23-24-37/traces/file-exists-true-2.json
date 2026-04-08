@@ -1,0 +1,41 @@
+{
+  "task": "file-exists-true-2",
+  "type": "file_existence",
+  "groundTruth": true,
+  "question": "Does the file ~/polybrain/bin/polybrain-validate.mjs exist in the Polybrain repository?",
+  "control": {
+    "fleetAnswer": "Yes, the file ~/polybrain/bin/polybrain-validate.mjs does exist in the Polybrain repository. It is part of the repository's bin directory, typically containing executable scripts for validation tasks within the Polybrain system.",
+    "fleetMs": 1054,
+    "classification": "CORRECT",
+    "confabulated": false,
+    "correct": true
+  },
+  "treatment": {
+    "s3Consensus": "UNCERTAIN",
+    "s3Verdicts": [
+      {
+        "model": "deepseek-r1",
+        "verdict": "CORRECT",
+        "reason": "The file bin/polybrain-validate.mjs is present in the Polybrain repository, as confirmed by the repository's public structure."
+      },
+      {
+        "model": "gemini-2.5-flash",
+        "verdict": "INCORRECT",
+        "reason": "The file `polybrain-validate.mjs` does not exist in the `bin` directory of the official Polybrain repository on GitHub. The `bin` directory contains `polybrain-cli.mjs`, `polybrain-server.mjs`, and `polybrain-test.mjs`, but not a validation script with that specific name."
+      },
+      {
+        "model": "gpt-4o",
+        "verdict": "UNCERTAIN",
+        "reason": "The existence of a specific file in a repository cannot be confirmed without direct access to the repository's contents or documentation specifying the file structure."
+      }
+    ],
+    "s3Ms": 41136,
+    "s3Classification": "AMBIGUOUS",
+    "accepted": true,
+    "confabulated": false,
+    "correct": true,
+    "falsePositive": false,
+    "caught": false
+  },
+  "latencyOverhead": 41136
+}
