@@ -129,3 +129,69 @@ This study tests whether adding S3* (three external models that independently ve
 ## 11. Data Availability
 
 All experiment code, raw trial outputs, S3* verification logs, rater classifications, and analysis scripts will be published in the Polybrain repository at experiment completion. Incident reports constituting the qualitative baseline are already available in `research/`.
+
+---
+
+## 12. Experiment v1 Results (April 8, 2026)
+
+The first experiment tested H1 directly: does S3* reduce confabulation in the Polybrain fleet?
+
+**Design:** 18 tasks with known ground truth (9 true, 9 false). The fleet generated answers, then S3* (three external models) attempted to verify or reject each answer.
+
+**Results:**
+
+| Metric | Value |
+|--------|-------|
+| Total tasks | 18 |
+| Ground truth distribution | 9 true / 9 false |
+| Fleet confabulation rate | 38.9% (7/18 tasks) |
+| S3* catch rate | 0% (0/7 confabulations caught) |
+| S3* modal response | AMBIGUOUS (17/18 tasks) |
+
+**Key finding:** S3* returned AMBIGUOUS on 17 of 18 tasks. It did not confirm or deny the fleet's claims in any meaningful way. The verification layer was operationally inert.
+
+**Root cause:** S3* models are language models. They can evaluate logical consistency and reasoning quality, but they cannot verify filesystem facts, process states, or empirical claims that require direct observation. The original confabulation incidents (Incidents #1 and #2) involved factual claims about what existed on disk and whether a process had completed. S3* has no access to the filesystem, no ability to check process state, and no grounding in empirical reality. It can only reason about text. When presented with factual claims it cannot independently verify, it correctly reports ambiguity, but this means it catches nothing.
+
+**Verdict:** H1 is **NOT CONFIRMED**. S3* alone does not reduce factual confabulation. The intervention addresses only one dimension of epistemic failure (reasoning quality) while leaving the other dimension (factual grounding) completely unaddressed.
+
+**Data location:** `experiments/entitlement-results/2026-04-08T23-24-37/`
+
+**Archived dataset DOI:** [10.5281/zenodo.19476967](https://doi.org/10.5281/zenodo.19476967)
+
+## 13. Experiment v2 Design
+
+Experiment v1 revealed that confabulation has two independent failure modes, and S3* addresses only one. This motivates a revised experimental design that decomposes the intervention into its two necessary components.
+
+### Two failure modes of confabulation
+
+1. **Reasoning confabulation:** The system draws invalid conclusions from available evidence. Detectable by external models that can evaluate logical consistency without needing access to ground truth.
+2. **Factual confabulation:** The system asserts empirical claims (file exists, process completed, data returned) that are false. Detectable only by a grounding layer with direct access to the relevant environment (filesystem, process table, API responses).
+
+S3* addresses failure mode 1 but is structurally blind to failure mode 2. The original incidents were both failure mode 2. This explains the 0% catch rate.
+
+### Revised hypothesis
+
+**H1-v2 (Primary):** Neither S3* nor a grounding layer alone is sufficient to reduce confabulation to acceptable levels. The combination of both (reasoning verification + factual grounding) will produce the lowest confabulation rate.
+
+**H2-v2 (Decomposition):** Condition C (grounding alone) will catch factual confabulations that S3* misses. Condition B (S3* alone) will catch reasoning confabulations that grounding misses. Each addresses a distinct failure mode.
+
+**H3-v2 (Interaction):** The effect of combining S3* and grounding is at least additive. Confabulations caught by Condition D should approximate the union of confabulations caught by Conditions B and C independently.
+
+### Four conditions
+
+| Condition | Fleet | S3* (reasoning) | Grounding (factual) | Purpose |
+|-----------|-------|------------------|----------------------|---------|
+| A: CONTROL | Yes | No | No | Baseline confabulation rate |
+| B: S3* only | Yes | Yes | No | Reasoning verification alone |
+| C: Grounding only | Yes | No | Yes | Factual verification alone |
+| D: S3* + Grounding | Yes | Yes | Yes | Full intervention |
+
+**Grounding layer specification:** A verification module with direct access to the filesystem, process table, and API endpoints. When the fleet claims a file exists, the grounding layer checks. When it claims a process completed, the grounding layer queries process state. When it claims data was returned, the grounding layer replays the request. This is not a language model. It is a deterministic verification tool that returns CONFIRMED, DENIED, or UNABLE_TO_CHECK for each factual claim.
+
+**Trial count:** 40 per condition (160 total), using the same task distribution and blinding protocol as Section 6.
+
+**Analysis:** Kruskal-Wallis test across all four conditions, followed by pairwise Mann-Whitney U tests with Bonferroni correction (6 comparisons, adjusted alpha = 0.0083). The primary comparison is Condition D vs. Condition A. Secondary comparisons decompose the effect: B vs. A (S3* contribution), C vs. A (grounding contribution), D vs. B (grounding added to S3*), D vs. C (S3* added to grounding).
+
+### Scientific process note
+
+This iterative structure (hypothesis, test, negative result, revised hypothesis, retest) is the intended workflow. Experiment v1 was not a failure. It produced a clear, informative negative result that sharpened the theory: confabulation is not a single failure mode, and no single intervention addresses all of it. The revised design tests this decomposition directly.
